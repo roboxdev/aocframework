@@ -1,5 +1,5 @@
-##AoC Framework
-
+AoC Framework
+===
 Helper class that aims to reduce your boilerplate code when solving adventofcode.com challenges.
 
 Does following:
@@ -8,7 +8,8 @@ Does following:
 * splitlines() your puzzle input
 * run tests
 
-####Usage example
+Usage example
+---
 ```python
 from aocframework import AoCFramework
 
@@ -35,7 +36,7 @@ Day()
 ```
 Output
 ```
- puzzle input
+ ...puzzle input
 ***
 [Test OK] abcde fghij: 1
 [Test OK] abcde xyz ecdab: 0
@@ -58,5 +59,4 @@ aoc2017/
         foo1.py
         foo2.py
 session_token
-
 ```

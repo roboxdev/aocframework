@@ -8,4 +8,7 @@ setup(name='aocframework',
       author_email='root@roboxv.pro',
       license='WTFPL',
       packages=['aocframework'],
+      install_requires=[
+          'requests',
+      ],
       zip_safe=False)

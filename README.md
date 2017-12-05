@@ -8,6 +8,12 @@ Does following:
 * splitlines() your puzzle input
 * run tests
 
+Installation
+---
+```
+pip install aocframework
+```
+
 Usage example
 ---
 ```python

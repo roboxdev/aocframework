@@ -21,17 +21,17 @@ class AoCFramework(object):
             with open(puzzle_input_path) as f:
                 self.raw_puzzle_input = f.read()
         except FileNotFoundError:
-            with open(puzzle_input_path, 'w') as f:
-                res = requests.get(
-                    url='http://adventofcode.com/{}/day/{}/input'.format(self.year, self.day),
-                    cookies={'session': self.session_token}
-                )
-                if res.ok:
+            res = requests.get(
+                url='http://adventofcode.com/{}/day/{}/input'.format(self.year, self.day),
+                cookies={'session': self.session_token}
+            )
+            if res.ok:
+                with open(puzzle_input_path, 'w') as f:
                     f.write(res.text)
-                    self.raw_puzzle_input = res.text
-                else:
-                    print(res.status_code, res.text)
-                    exit()
+                self.raw_puzzle_input = res.text
+            else:
+                print(res.status_code, res.text)
+                exit()
 
     @property
     def test(self):

@@ -1,6 +1,7 @@
 from pathlib import Path
 from pprint import pprint
 import requests
+import re
 
 
 class AoCFramework(object):
@@ -39,12 +40,24 @@ class AoCFramework(object):
 
     @property
     def puzzle_input(self):
-        return self.raw_puzzle_input
+        return self.raw_puzzle_input.strip()
 
     @property
     def linesplitted(self):
-        return self.raw_puzzle_input.splitlines()
-
+        return self.raw_puzzle_input.strip().splitlines()
+    
+    def get_operations(self, patterns, look_in=None):
+        operations = []
+        for operation in look_in or self.linesplitted:
+            match = None
+            for pattern, f in patterns:
+                match = re.match(pattern, operation)
+                if match:
+                    operations.append((f, match.groupdict()))
+                    break
+            assert match
+        return operations
+    
     def __init__(self, puzzle_input=None):
         # p = Path(sys.argv[0])
         p = Path(__import__(type(self).__module__).__file__)

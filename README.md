@@ -6,6 +6,7 @@ Does following:
 * fetch puzzle input
 * save puzzle input to file
 * splitlines() your puzzle input
+* get operations list from puzzle input, based on regexp patterns
 * run tests
 
 Installation
